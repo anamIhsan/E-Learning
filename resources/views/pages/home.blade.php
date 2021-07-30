@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Learn Homepage
+    Homepage
 @endsection
 
 @section('content')
