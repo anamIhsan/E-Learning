@@ -5,7 +5,7 @@
     Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo text-center bg-primary text-primary">
-        <img src="/images/logo.png" alt="" class="w-75">
+        <img src="{{ asset('images/logo.png') }}" alt="" class="w-75">
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
