@@ -43,7 +43,7 @@ Route::get('/user_categories', function () {
 
 Route::get('/user_all-categories', function () {
     return view('pages.user.allCategory');
-});
+})->name('all-category');
 
 Route::get('/class', function () {
     return view('pages.user.class');
@@ -55,8 +55,12 @@ Route::get('/video', function () {
 
 Route::get('/dashboard', function () {
     return view('pages.user.dashboard');
-});
+})->name('dashboard');
 
 Route::get('/dashboard/account', function () {
     return view('pages.user.dashboard-account');
-});
+})->name('dashboard-account');
+
+Route::get('/dashboard/course', function () {
+    return view('pages.user.dashboard-course');
+})->name('dashboard-course');
