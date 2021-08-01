@@ -27,13 +27,13 @@
                             placeholder="enter your password" 
                             class="bg-white outline-none py-2 pl-2 shadow-md w-80"
                         >
-                        <a href="/user_home">
+                        <a href="{{ route('user-home') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 shadow-md py-2 w-80 mt-12 text-white font-bold outline-none">
                                 LOGIN
                             </button>
                         </a>
-                        <a href="/register">
+                        <a href="{{ route('register') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 shadow-md py-2 w-80 mt-3 text-white font-bold outline-none">
                                 SIGN UP

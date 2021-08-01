@@ -35,7 +35,7 @@ Route::get('/register', function () {
 
 Route::get('/user_home', function () {
     return view('pages.user.home');
-});
+})->name('user-home');
 
 Route::get('/user_categories', function () {
     return view('pages.user.category');

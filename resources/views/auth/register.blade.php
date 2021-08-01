@@ -52,7 +52,7 @@
                                 <option value="">Teacher</option>
                         </select>
                     </div>
-                    <a href="/login">
+                    <a href="{{ route('login') }}">
                         <button 
                             class="bg-green-400 hover:bg-green-500 transition duration-300 shadow-md py-3 w-80 mt-12 text-white font-bold outline-none">
                             CONTINUE
