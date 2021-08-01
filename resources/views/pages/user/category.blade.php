@@ -16,7 +16,7 @@
             <div class="grid grid-cols-4 gap-7">
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan1.png" class="w-full">
+                        <img src="{{ asset('images/iklan1.png') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -33,7 +33,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan2.jpeg" class="w-full">
+                        <img src="{{ asset('images/iklan2.jpeg') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -60,7 +60,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan3.jpeg" class="w-full">
+                        <img src="{{ asset('images/iklan3.jpeg') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -87,7 +87,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan1.png" class="w-full">
+                        <img src="{{ asset('images/iklan1.png') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -114,7 +114,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan2.jpeg" class="w-full">
+                        <img src="{{ asset('images/iklan2.jpeg') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -141,7 +141,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -151,7 +151,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan1.png" class="w-full">
+                        <img src="{{ asset('images/iklan1.png') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -168,7 +168,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -178,7 +178,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="1300" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan2.jpeg" class="w-full">
+                        <img src="{{ asset('images/iklan2.jpeg') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -195,7 +195,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-span-1" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000">
                     <div class="">
-                        <img src="images/iklan3.jpeg" class="w-full">
+                        <img src="{{ asset('images/iklan3.jpeg') }}" class="w-full">
                     </div>
                     <div class="px-3 py-5 space-y-2 shadow-xl">
                         <div class="flex flex-row space-x-1 text-gray-500">
@@ -222,7 +222,7 @@
                         <p class="text-gray-500 text-sm">
                             100 x ditonton
                         </p>
-                        <a href="#">
+                        <a href="{{ route('class') }}">
                             <button 
                                 class="bg-green-400 hover:bg-green-500 transition duration-300 py-3 px-5 mt-8 ml-70 rounded-lg text-white font-bold outline-none">
                                 START NOW

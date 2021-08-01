@@ -33,13 +33,15 @@ Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
+// User
+
 Route::get('/user_home', function () {
     return view('pages.user.home');
 })->name('user-home');
 
 Route::get('/user_categories', function () {
     return view('pages.user.category');
-});
+})->name('user-categories');
 
 Route::get('/user_all-categories', function () {
     return view('pages.user.allCategory');
@@ -47,11 +49,13 @@ Route::get('/user_all-categories', function () {
 
 Route::get('/class', function () {
     return view('pages.user.class');
-});
+})->name('class');
 
 Route::get('/video', function () {
     return view('pages.user.video');
-});
+})->name('video');
+
+// Dashboard
 
 Route::get('/dashboard', function () {
     return view('pages.user.dashboard');

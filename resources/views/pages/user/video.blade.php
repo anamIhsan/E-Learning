@@ -14,8 +14,8 @@
                 </div>
                 <div class="thumbnail w-4/5 mx-auto">
                     {{-- <iframe src="" name="iframe_a" ></iframe> --}}
-                    <video controls class="w-full h-404 rounded-lg outline-none">
-                        <source src="videos/sombong.mp4" type="video/mp4">
+                    <video controls class="w-full h-404 rounded-lg shadow-xl outline-none">
+                        <source src="{{ asset('videos/sombong.mp4') }}" type="video/mp4">
                     </video>
                 </div>
                 <div class="chapter">
@@ -25,7 +25,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="videos/tes.mp4">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none"
                                     target="iframe_a">
@@ -38,7 +38,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="videos/sombong.mp4">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none">
                                     PLAY VIDEO
@@ -50,7 +50,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="#">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none">
                                     PLAY VIDEO
@@ -62,7 +62,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="#">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none">
                                     PLAY VIDEO
@@ -74,7 +74,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="#">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none">
                                     PLAY VIDEO
@@ -86,7 +86,7 @@
                             <p class="text-gray-700">
                                 Keterampilan Mengasuh - Perawatan Damensia
                             </p>
-                            <a href="#">
+                            <a href="{{ asset('videos/sombong.mp4') }}">
                                 <button 
                                     class="bg-green-400 hover:bg-green-500 transition duration-300 py-2 px-5 rounded-lg text-white font-bold outline-none">
                                     PLAY VIDEO
