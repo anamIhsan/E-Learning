@@ -16,7 +16,9 @@
 .card {
   font-size: .875rem;
 }
-
+.color-navbar {
+  background-color: #2e4272;
+}
 *,
 *::before,
 *::after {
@@ -18069,9 +18071,15 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card-profile {
+  margin-top: 60px;
+  text-align: center;
+  z-index: 2;
+}
+
+/* .card-profile {
   margin-top: 30px;
   text-align: center;
-}
+} */
 
 .card-profile .card-avatar {
   margin: -50px auto 0;
@@ -18082,8 +18090,12 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card-profile .card-avatar+.card-body {
-  margin-top: 15px;
+  margin-top: 0px;
 }
+
+/* .card-profile .card-avatar+.card-body {
+  margin-top: 15px;
+} */
 
 .card-profile .card-avatar img {
   width: 100%;
@@ -18109,9 +18121,14 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card-profile .card-avatar {
+  max-width: 90px;
+  max-height: 90px;
+}
+
+/* .card-profile .card-avatar {
   max-width: 130px;
   max-height: 130px;
-}
+} */
 
 .card-plain {
   background: transparent;

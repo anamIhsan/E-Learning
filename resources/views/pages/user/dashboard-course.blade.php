@@ -15,8 +15,11 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
+            <h4 class="card-title ">Keep Spirit</h4>
+            <p class="card-category">
+              Upgrade terus ilmu dan pengalaman
+              terbaru kamu di bidang teknologi
+            </p>
           </div>
           <div class="card-body">
             <div class="row">
@@ -35,7 +38,9 @@
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      <a href="{{ route('class') }}">
+                        <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -55,7 +60,9 @@
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      <a href="{{ route('class') }}">
+                        <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -75,7 +82,9 @@
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      <a href="{{ route('class') }}">
+                        <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -95,7 +104,9 @@
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      <a href="{{ route('class') }}">
+                        <button type="button" class="btn btn-primary btn-md">Learn Again</button>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -136,7 +136,10 @@
             <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                     <h4 class="card-title">Kursus yang Sedang Berlangsung</h4>
-                    <p class="card-category">New employees on 15th September, 2016</p>
+                    <p class="card-category">
+                        Upgrade terus ilmu dan pengalaman
+                        terbaru kamu di bidang teknologi
+                    </p>
                     {{-- <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
                         <span class="nav-tabs-title">Tasks:</span>
@@ -356,7 +359,10 @@
             <div class="card">
                 <div class="card-header card-header-warning">
                 <h4 class="card-title">Kursus yang di selesaikan</h4>
-                <p class="card-category">New employees on 15th September, 2016</p>
+                <p class="card-category">
+                    Upgrade terus ilmu dan pengalaman
+                    terbaru kamu di bidang teknologi
+                </p>
                 </div>
                 <div class="card-body table-responsive">
                 <table class="table table-hover">

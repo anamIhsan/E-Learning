@@ -4,24 +4,33 @@
 
     Tip 2: you can also add an image using data-image tag
     -->
-    <div class="logo text-center bg-primary text-primary">
-        <img src="{{ asset('images/logo.png') }}" alt="" class="w-75">
+    <div class="logo text-center color-navbar">
+        <img src="{{ asset('images/logo.png') }}" alt="" class="w-50 p-0">
     </div>
-    <div class="sidebar-wrapper">
+    <div class="card card-profile" style="background: transparent;">
+        <div class="card-avatar">
+            <img class="" src="{{ asset('images/faces/marc.jpg') }}" />
+        </div>
+        <div class="">
+          <h6 class="mt-3 text-gray">Peped Markoped</h6>
+          <h5 class="">pepedmarkoped@gmail.com</h5>
+        </div>
+    </div>
+    <div class="sidebar-wrapper" style="margin-top: -40px;">
         <ul class="nav">
-            <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('student/dashboard')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="material-icons">dashboard</i>
                 <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item {{ (request()->is('dashboard/course')) ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('student/dashboard/course')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard-course') }}">
                 <i class="material-icons">library_books</i>
                 <p>My Courses</p>
                 </a>
             </li>
-            <li class="nav-item {{ (request()->is('dashboard/account*')) ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('student/dashboard/account*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard-account') }}">
                 <i class="material-icons">person</i>
                 <p>Account Settings</p>
@@ -36,3 +45,5 @@
         </ul>
     </div>
 </div>
+
+{{--  --}}
