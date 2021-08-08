@@ -38,7 +38,11 @@
                 {{ (request()->is('Admin/dashboard/course')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/course/create')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/course/edit')) ? 'active' : '' }} 
-                {{ (request()->is('Admin/dashboard/course/detail')) ? 'active' : '' }} 
+                {{ (request()->is('Admin/dashboard/course/detail')) ? 'active' : '' }}
+                {{ (request()->is('Admin/dashboard/chapter')) ? 'active' : '' }}
+                {{ (request()->is('Admin/dashboard/chapter/create')) ? 'active' : '' }}
+                {{ (request()->is('Admin/dashboard/chapter/edit')) ? 'active' : '' }} 
+                {{ (request()->is('Admin/dashboard/chapter/detail')) ? 'active' : '' }}  
             ">
                 <a class="nav-link" href="{{ route('admin-dashboard-course') }}">
                 <i class="material-icons">library_books</i>

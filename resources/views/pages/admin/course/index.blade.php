@@ -231,7 +231,6 @@
                                     </span>
                                 </th>
                                 <th>Category</th>
-                                <th>Chapter</th>
                                 <th>Title</th>
                                 <th>Thumbnail</th>
                                 <th>Description</th>
@@ -239,15 +238,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td style="font-size: 16px;">Progaming</td>
-                                <td style="font-size: 16px;">Materi Dasar</td>  
+                                <td style="font-size: 16px;">Progaming</td> 
                                 <td style="font-size: 16px;">html & css</td>
                                 <td>
                                     <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="90" height="50">
@@ -259,86 +257,9 @@
                                 </td>
                                 <td class="">
                                     <div class="d-flex ">
+                                        <a href="{{ route('admin-dashboard-chapter') }}" class="text-dark"><i class="material-icons" data-toggle="tooltip" title="List Chapter">&#xe896;</i></a>
                                         <a href="{{ route('admin-dashboard-course-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="{{ route('admin-dashboard-course-detail') }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">&#xe896;</i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td style="font-size: 16px;">Progaming</td>
-                                <td style="font-size: 16px;">Materi Dasar</td>  
-                                <td style="font-size: 16px;">html & css</td>
-                                <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="90" height="50">
-                                </td>
-                                <td width="250">
-                                    thomashardy@mail.comLorem Ipsum is simply dummy text 
-                                    of the printing and typesetting industry. Lorem Ipsum 
-                                    has been the industry
-                                </td>
-                                <td class="">
-                                    <div class="d-flex ">
-                                        <a href="{{ route('admin-dashboard-course-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="{{ route('admin-dashboard-course-detail') }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">&#xe896;</i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td style="font-size: 16px;">Progaming</td>
-                                <td style="font-size: 16px;">Materi Dasar</td>  
-                                <td style="font-size: 16px;">html & css</td>
-                                <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="90" height="50">
-                                </td>
-                                <td width="250">
-                                    thomashardy@mail.comLorem Ipsum is simply dummy text 
-                                    of the printing and typesetting industry. Lorem Ipsum 
-                                    has been the industry
-                                </td>
-                                <td class="">
-                                    <div class="d-flex ">
-                                        <a href="{{ route('admin-dashboard-course-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="{{ route('admin-dashboard-course-detail') }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">&#xe896;</i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td style="font-size: 16px;">Progaming</td>
-                                <td style="font-size: 16px;">Materi Dasar</td>  
-                                <td style="font-size: 16px;">html & css</td>
-                                <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="90" height="50">
-                                </td>
-                                <td width="250">
-                                    thomashardy@mail.comLorem Ipsum is simply dummy text 
-                                    of the printing and typesetting industry. Lorem Ipsum 
-                                    has been the industry
-                                </td>
-                                <td class="">
-                                    <div class="d-flex ">
-                                        <a href="{{ route('admin-dashboard-course-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                        <a href="{{ route('admin-dashboard-course-detail') }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">&#xe896;</i></a>
+                                        <a href="{{ route('admin-dashboard-course-detail') }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">	&#xe879;</i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                     </div>
                                 </td>

@@ -22,29 +22,29 @@
                             </p>
                         </div>
                         <div class="card-body">
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                                 <h6 class="">Category</h6>
                                 <p class="text-sm">
                                     Programing
                                 </p>
                             </div>
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                                 <h6 class="">Chapter</h6>
                                 <p class="text-sm">
                                     Materi Dasar
                                 </p>
                             </div>
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                                 <h6 class="">Thumbnail</h6>
                                 <img src="{{ asset('images/iklan1.png') }}" witdh="150" height="150" class="rounded-lg mb-2">
                             </div>
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                                 <h6 class="">Title</h6>
                                 <p class="text-sm">
                                     html & css
                                 </p>
                             </div>
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                                 <h6 class="">Description</h6>
                                 <p class="text-sm">
                                     html & cssfbvifdub udsgsd isduyg diuh sdivgsdi sdiu 
@@ -54,7 +54,7 @@
                                     html & cssfbvifdub udsgsd isduyg diuh sdivgsdi sdiu 
                                 </p>
                             </div>
-                            <div class="">
+                            <div class="" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                                 <h6 class="">Video</h6>
                                 <video controls class="rounded-lg" witdh="150" height="150">
                                     <source src="{{ asset('videos/sombong.mp4') }}" type="video/mp4">

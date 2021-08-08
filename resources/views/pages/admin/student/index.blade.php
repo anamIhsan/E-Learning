@@ -237,7 +237,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -254,7 +254,7 @@
                                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox2" name="options[]" value="1">
@@ -271,7 +271,7 @@
                                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -288,7 +288,7 @@
                                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox2" name="options[]" value="1">

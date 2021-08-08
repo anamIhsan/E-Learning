@@ -43,7 +43,7 @@
                     </div>
                   </div>
                 </div> -->
-                <div class="row">
+                <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                   <div class="col-md-12">
                     <div class="">
                       <label class="bmd-label-floating">PROFILE</label>
@@ -51,7 +51,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">NAME</label>
@@ -65,8 +65,8 @@
                     </div>
                   </div>
                 </div>
-                <h4 class="text-center pt-2">Change Password</h4>
-                <div class="row">
+                <h4 class="text-center pt-2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Change Password</h4>
+                <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">NEW PASSWORD</label>

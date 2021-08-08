@@ -19,7 +19,7 @@
                                 <i class="material-icons">school</i>
                             </div>
                             <p class="card-category">Students</p>
-                            <h3 class="card-title">450</h3>
+                            <h3 class="card-title">{{ $student }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -35,7 +35,7 @@
                                 <i class="material-icons">category</i>
                             </div>
                             <p class="card-category">Categories</p>
-                            <h3 class="card-title">245</h3>
+                            <h3 class="card-title">{{ $category }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -51,7 +51,7 @@
                                 <i class="material-icons">library_books</i>
                             </div>
                             <p class="card-category">Courses</p>
-                            <h3 class="card-title">75</h3>
+                            <h3 class="card-title">{{ $course }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -67,7 +67,7 @@
                                 <i class="material-icons">video_library</i>
                             </div>
                             <p class="card-category">Videos</p>
-                            <h3 class="card-title">+245</h3>
+                            <h3 class="card-title">+{{ $video }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">

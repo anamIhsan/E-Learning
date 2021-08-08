@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\ChapterController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\SettingController;
@@ -75,20 +76,38 @@ Route::get('/Admin/dashboard/course/create', [CourseController::class, 'create']
 Route::get('/Admin/dashboard/course/edit', [CourseController::class, 'edit'])
     ->name('admin-dashboard-course-edit');
 Route::get('/Admin/dashboard/course/detail', [CourseController::class, 'show'])
-->name('admin-dashboard-course-detail');
+    ->name('admin-dashboard-course-detail');
+
+// Chapter
+Route::get('/Admin/dashboard/chapter', [ChapterController::class, 'index'])
+    ->name('admin-dashboard-chapter');
+Route::get('/Admin/dashboard/chapter/create', [ChapterController::class, 'create'])
+    ->name('admin-dashboard-chapter-create');
+Route::get('/Admin/dashboard/chapter/edit', [ChapterController::class, 'edit'])
+    ->name('admin-dashboard-chapter-edit');
+Route::get('/Admin/dashboard/chapter/detail', [ChapterController::class, 'show'])
+    ->name('admin-dashboard-chapter-detail');
+
 
     // Category
 Route::get('/Admin/dashboard/category', [AdminCategoryController::class, 'index'])
     ->name('admin-dashboard-category');
 Route::get('/Admin/dashboard/category/create', [AdminCategoryController::class, 'create'])
     ->name('admin-dashboard-category-create');
-Route::get('/Admin/dashboard/category/edit', [AdminCategoryController::class, 'edit'])
+Route::post('/Admin/dashboard/category/create', [AdminCategoryController::class, 'store'])
+    ->name('admin-dashboard-category-store');
+Route::get('/Admin/dashboard/category/edit/{id}', [AdminCategoryController::class, 'edit'])
     ->name('admin-dashboard-category-edit');
+Route::put('/Admin/dashboard/category/update/{id}', [AdminCategoryController::class, 'update'])
+    ->name('admin-dashboard-category-update');
+Route::delete('/Admin/dashboard/category/delete/{id}', [AdminCategoryController::class, 'destroy'])
+    ->name('admin-dashboard-category-delete');
 
+    // Account
 Route::get('/Admin/dashboard/account', [SettingController::class, 'index'])
     ->name('admin-dashboard-account');
 
 
 
 
-// <!-- at tur/muhammad taha al junayd/:16: -->
+// <!-- al muminun /qori ali al-hudzaifi mujawwad/:6: -->

@@ -23,7 +23,7 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block shadow-xl border-radius-xl">
@@ -45,7 +45,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block shadow-xl border-radius-xl">
@@ -67,7 +67,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block shadow-xl border-radius-xl">
@@ -89,7 +89,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+              <div class="col-xl-3 col-md-6 mb-xl-0 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <div class="card card-blog card-plain">
                   <div class="position-relative">
                     <a class="d-block shadow-xl border-radius-xl">

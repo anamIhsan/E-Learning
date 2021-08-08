@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- CSS Just for demo purpose, don't include it in your project -->
 {{-- <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" /> --}}
 

@@ -217,10 +217,18 @@
                             </div>
                             <div class="col-sm-6">
                                 <a href="{{ route('admin-dashboard-category-create') }}" class="btn btn-success">Add New Category</a>
-                                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">Delete All</a>						
+                                <a href="#deleteAllCategory" class="btn btn-danger" data-toggle="modal">Delete All</a>						
                             </div>
                         </div>
                     </div>
+                    {{-- ALERT DATA BERHASIL DI HAPUS / EDIT --}}
+                    @if (session('notification-success'))
+                        <div class="alert alert-success">{{ session('notification-success') }}</div>
+                    @endif
+                    {{-- ALERT DATA BERHASIL DI DELETE --}}
+                    @if (session('notification-delete'))
+                        <div class="alert alert-danger">{{ session('notification-delete') }}</div>
+                    @endif
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -236,81 +244,65 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            @php
+                                $dataAos = 0
+                            @endphp
+                            @foreach ($categories as $data)
+                            <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $dataAos+= 100 }}">
                                 <td>
                                     <span class="custom-checkbox">
                                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td>Thomas Hardy</td>
+                                <td>{{ $data->name }}</td>
                                 <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="100" height="70">
+                                    <img src="/profile/{{ $data->photo }}" class="bg-cover" width="100" height="70">
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin-dashboard-category-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="{{ route('admin-dashboard-category-edit', $data->id) }}" 
+                                       class="edit"><i class="material-icons" data-toggle="tooltip" 
+                                       title="Edit">&#xE254;</i>
+                                    </a>
+                                    <a href="#deleteCategory" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                        <label for="checkbox2"></label>
-                                    </span>
-                                </td>
-                                <td>Dominique Perrier
-                                    <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="100" height="70">
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin-dashboard-category-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
-                                <td>Thomas Hardy</td>
-                                <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="100" height="70">
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin-dashboard-category-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox2" name="options[]" value="1">
-                                        <label for="checkbox2"></label>
-                                    </span>
-                                </td>
-                                <td>Dominique Perrier
-                                    <td>
-                                    <img src="{{ asset('images/iklan1.png') }}" class="bg-cover" width="100" height="70">
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin-dashboard-category-edit') }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div> 
-            {{-- ALERT --}}
-            <div id="deleteEmployeeModal" class="modal fade">
+            {{-- ALERT DELETE CATEGORY --}}
+            <div id="deleteCategory" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form form class="d-inline-block" action="{{ route('admin-dashboard-category-delete', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="modal-header">						
+                                <h4 class="modal-title">Delete Category</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">					
+                                <p>Are you sure you want to delete these Records?</p>
+                                <p class="text-warning"><small>This action cannot be undone.</small></p>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                <button type="submit" class="btn btn-danger btn-small">delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {{-- ALERT DELETE ALL CATEGORY --}}
+            <div id="deleteAllCategory" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form>
                             <div class="modal-header">						
-                                <h4 class="modal-title">Delete Category</h4>
+                                <h4 class="modal-title">Delete All Category</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">					
