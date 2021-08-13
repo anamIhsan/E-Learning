@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CourseRequest;
+use App\Models\Category;
+use App\Models\Chapter;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,7 +18,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.course.index');
+        $courses = Course::all();
+
+        return view('pages.admin.course.index', ['courses' => $courses]);
     }
 
     /**
@@ -24,7 +30,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.course.create');
+        $categories = Category::all();
+
+        return view('pages.admin.course.create', ['categories' => $categories]);
     }
 
     /**
@@ -33,9 +41,16 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        //
+        $image_file = $this->uploadImage($request->file('thumbnail_file'));
+
+        $request->merge([
+            'thumbnail' => $image_file
+        ]);
+
+        Course::create($request->all());
+        return redirect()->route('admin-dashboard-course')->with('notification-success', 'Course berhasil di buat');
     }
 
     /**
@@ -44,9 +59,11 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('pages.admin.course.detail');
+        $url = action([ChapterController::class, 'index'], ['id' => $id]);
+        
+        return redirect($url);
     }
 
     /**
@@ -55,9 +72,16 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('pages.admin.course.edit');
+        $data = Course::findOrFail($id);
+        $categories = Category::all();
+
+        return view('pages.admin.course.edit', [
+            'data' => $data,
+            'categories' => $categories,
+            
+        ]);
     }
 
     /**
@@ -67,9 +91,24 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CourseRequest $request, $id)
     {
-        //
+        $data = Course::findOrFail($id);
+
+        if($request->file('thumbnail_file') == null){
+            $request->merge([
+                'thumbnail' => $data->thumbnail
+            ]);
+        }else {
+            $this->removeImage($data->thumbnail);
+            $image_file = $this->uploadImage($request->thumbnail_file);
+            $request->merge([
+                'thumbnail' => $image_file
+            ]);
+        }
+
+        $data->update($request->all());
+        return redirect()->route('admin-dashboard-course')->with('notification-success', 'Course berhasil di edit');
     }
 
     /**
@@ -80,6 +119,27 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Course::find($id);
+
+        $this->removeImage($data->thumbnail);
+        $data->delete();
+        return back()->with('notification-delete', 'Course berhasil di hapus');
+    }
+
+    //mengupload gambar
+    public function uploadImage($image)
+    {
+        $new_name_image =time() . '.'. $image->getClientOriginalExtension();
+        $image->move(public_path('profile'), $new_name_image);
+        return $new_name_image;
+        
+    }
+    
+    //unlink buat menghapus file
+    public function removeImage($image)
+    {   
+        if (file_exists('profile/'. $image)){
+        unlink('profile/'. $image);
+        }
     }
 }

@@ -11,34 +11,51 @@
 @section('content')
   <div class="content">
     <div class="container-fluid">
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
       <div class="row">
         <div class="col-md-8">
           <div class="d-flex flex-column align-items-start">
             <a href="{{ route('admin-dashboard-course') }}"><button class="btn btn-dark pull-right ml-3 mb-3">Back</button></a>
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Edit Course</h4>
+                <h4 class="card-title">Create Course</h4>
                 <p class="card-category">
                   Pengaturan akun yang mungkin
                   dibutuhkan selama proses belajar
                 </p>
               </div>
               <div class="card-body">
-                <form>
+                <form action="{{ route('admin-dashboard-course-update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  @method('PUT')
                   <div class="row">
                       <div class="col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                         <div class="form-group">
                           <label class="bmd-label-floating">CATEGORY</label>
-                          <select name="" id="" class="pl-2 form-control">
-                              <option value="">Html</option>
-                              <option value="">Php</option>
+                          <select name="categories_id" class="pl-2 form-control">
+                            @foreach ($categories as $category)
+                              <option value="{{ $category->id }}" {{ $category->id == $data->categories_id ? "selected" : "" }}>{{ $category->name }}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
                       <div class="col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                           <div class="form-group">
                             <label class="bmd-label-floating">TITLE</label>
-                            <input type="text" class="form-control">
+                            <input 
+                              type="text" 
+                              class="form-control"
+                              name="title"
+                              value="{{ $data->title }}"  
+                            >
                           </div>
                       </div>
                   </div>
@@ -46,7 +63,11 @@
                       <div class="col-md-12">
                           <div class="">
                           <label class="bmd-label-floating">THUMBNAIL</label>
-                          <input type="file" class="form-control">
+                          <input 
+                            type="file" 
+                            class="form-control"
+                            name="thumbnail_file"  
+                          >
                           </div>
                       </div>
                   </div>
@@ -54,7 +75,12 @@
                       <div class="col-md-12">
                           <div class="form-group">
                             <label class="bmd-label-floating">DESCRIPTION</label>
-                            <input type="longtext" class="form-control">
+                            <input 
+                              type="longtext" 
+                              class="form-control"
+                              name="description"  
+                              value="{{ $data->description }}"
+                            >
                           </div>
                       </div>
                   </div>
@@ -68,4 +94,4 @@
       </div>
     </div>
   </div>
-@endsection
+@endsection   

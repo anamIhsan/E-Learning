@@ -46,7 +46,7 @@ class CategoryController extends Controller
         ]);
         
         Category::create($request->all());
-        return redirect()->route('admin-dashboard-category')->with('notification-success', 'Data berhasil di buat');
+        return redirect()->route('admin-dashboard-category')->with('notification-success', 'Category berhasil di buat');
     }
 
     /**
@@ -99,7 +99,7 @@ class CategoryController extends Controller
         }
 
         $data->update($request->all());
-        return redirect()->route('admin-dashboard-category')->with('notification-success', 'Data berhasil di edit');
+        return redirect()->route('admin-dashboard-category')->with('notification-success', 'Category berhasil di edit');
     }
 
     /**
@@ -113,7 +113,7 @@ class CategoryController extends Controller
         $data = Category::findOrFail($id);
         $this->removeImage($data->photo);
         $data->delete();
-        return back()->with('notification-delete', 'Data berhasil di hapus');
+        return back()->with('notification-delete', 'Category berhasil di hapus');
     }
     
     //mengupload gambar

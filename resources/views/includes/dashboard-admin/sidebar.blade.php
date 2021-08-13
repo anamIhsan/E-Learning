@@ -25,24 +25,15 @@
                 </a>
             </li>
             <li class="nav-item 
-                {{ (request()->is('Admin/dashboard/student')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/student/create')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/student/edit')) ? 'active' : '' }}    
-            ">
-                <a class="nav-link" href="{{ route('admin-dashboard-student') }}">
-                <i class="material-icons">school</i>
-                <p>Student</p>
-                </a>
-            </li>
-            <li class="nav-item 
                 {{ (request()->is('Admin/dashboard/course')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/course/create')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/course/edit')) ? 'active' : '' }} 
-                {{ (request()->is('Admin/dashboard/course/detail')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/chapter')) ? 'active' : '' }}
+                {{ (request()->is('Admin/dashboard/course/edit*')) ? 'active' : '' }} 
+                {{ (request()->is('Admin/dashboard/course/detail*')) ? 'active' : '' }}
+                {{ (request()->is('Admin/dashboard/chapter*')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/chapter/create')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/chapter/edit')) ? 'active' : '' }} 
-                {{ (request()->is('Admin/dashboard/chapter/detail')) ? 'active' : '' }}  
+                {{ (request()->is('Admin/dashboard/chapter/edit*')) ? 'active' : '' }} 
+                {{ (request()->is('Admin/dashboard/video/create')) ? 'active' : '' }}  
+                {{ (request()->is('Admin/dashboard/video/edit*')) ? 'active' : '' }}  
             ">
                 <a class="nav-link" href="{{ route('admin-dashboard-course') }}">
                 <i class="material-icons">library_books</i>
@@ -52,7 +43,7 @@
             <li class="nav-item 
                 {{ (request()->is('Admin/dashboard/category')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/category/create')) ? 'active' : '' }}
-                {{ (request()->is('Admin/dashboard/category/edit')) ? 'active' : '' }} 
+                {{ (request()->is('Admin/dashboard/category/edit*')) ? 'active' : '' }} 
             ">
                 <a class="nav-link" href="{{ route('admin-dashboard-category') }}">
                 <i class="material-icons">content_paste</i>

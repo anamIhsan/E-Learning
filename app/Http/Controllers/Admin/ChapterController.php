@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ChapterRequest;
+use App\Models\Chapter;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -12,9 +15,16 @@ class ChapterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($url)
     {
-        return view('pages.admin.course.chapter.index');
+        $course = Course::find($url);
+        $chapter = Chapter::where('courses_id', $url)->get();
+        
+        return view('pages.admin.course.detail', [
+            'chapter' => $chapter,
+            'course' => $course,
+            'url' => $url
+        ]);
     }
 
     /**
@@ -22,9 +32,13 @@ class ChapterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($course)
     {
-        return view('pages.admin.course.chapter.create');
+        $course = Course::findOrFail($course);
+
+        return view('pages.admin.course.chapter.create', [
+            'course' => $course
+        ]);
     }
 
     /**
@@ -33,9 +47,13 @@ class ChapterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ChapterRequest $request, $id)
     {
-        //
+        $course = Course::find($id);
+        // $courses = $request->all();
+
+        Chapter::create($request->all());
+        return redirect()->route('admin-dashboard-course-detail', ['id'=>$id])->with('notification-success', 'Chapter berhasil di buat');
     }
 
     /**
@@ -46,7 +64,7 @@ class ChapterController extends Controller
      */
     public function show()
     {
-        return view('pages.admin.course.chapter.detail');
+        //
     }
 
     /**
@@ -55,9 +73,13 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('pages.admin.course.chapter.edit');
+        $chapters = Chapter::findOrFail($id);
+
+        return view('pages.admin.course.chapter.edit', [
+            'chapters' => $chapters
+        ]);
     }
 
     /**
@@ -67,9 +89,14 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ChapterRequest $request, $id)
     {
-        //
+        $course = Course::find($id);
+        $data = Chapter::findOrFail($id);
+
+        $data->update($request->all());
+
+        return redirect()->route('admin-dashboard-course-detail', $data->course->id )->with('notification-success', 'Chapter berhasil di buat');
     }
 
     /**
@@ -80,6 +107,10 @@ class ChapterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Chapter::findOrFail($id);
+
+        $data->delete();
+
+        return back()->with('notification-delete', 'Chapter berhasil di hapus');
     }
 }

@@ -264,37 +264,38 @@
                                        class="edit"><i class="material-icons" data-toggle="tooltip" 
                                        title="Edit">&#xE254;</i>
                                     </a>
-                                    <a href="#deleteCategory" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="#deleteCategory-{{$data->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
+                                {{-- ALERT DELETE CATEGORY --}}
+                                <div id="deleteCategory-{{$data->id}}" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form class="d-inline-block" action="{{ route('admin-dashboard-category-delete', $data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="modal-header">						
+                                                    <h4 class="modal-title">Delete Category</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                </div>
+                                                <div class="modal-body">					
+                                                    <p>Are you sure you want to delete these Records?</p>
+                                                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                                    <button type="submit" class="btn btn-danger btn-small">delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div> 
-            {{-- ALERT DELETE CATEGORY --}}
-            <div id="deleteCategory" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form form class="d-inline-block" action="{{ route('admin-dashboard-category-delete', $data->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <div class="modal-header">						
-                                <h4 class="modal-title">Delete Category</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">					
-                                <p>Are you sure you want to delete these Records?</p>
-                                <p class="text-warning"><small>This action cannot be undone.</small></p>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <button type="submit" class="btn btn-danger btn-small">delete</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
 
             {{-- ALERT DELETE ALL CATEGORY --}}
             <div id="deleteAllCategory" class="modal fade">

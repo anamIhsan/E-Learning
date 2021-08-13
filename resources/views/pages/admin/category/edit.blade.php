@@ -26,7 +26,7 @@
             <a href="{{ route('admin-dashboard-category') }}"><button class="btn btn-dark pull-right ml-3 mb-3">Back</button></a>
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Create Category</h4>
+                <h4 class="card-title">Edit Category</h4>
                 <p class="card-category">
                   Pengaturan akun yang mungkin
                   dibutuhkan selama proses belajar

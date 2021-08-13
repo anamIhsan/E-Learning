@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\VideoRequest;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.student.index');
+        $videos = Video::all();
+
+        return view('pages.admin.course.detail', [
+            'videos' => $videos
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.student.create');
+        return view('pages.admin.course.video.create');
     }
 
     /**
@@ -33,7 +39,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
         //
     }
@@ -57,7 +63,7 @@ class StudentController extends Controller
      */
     public function edit()
     {
-        return view('pages.admin.student.edit');
+        return view('pages.admin.course.video.edit');
     }
 
     /**
@@ -67,7 +73,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VideoRequest $request, $id)
     {
         //
     }

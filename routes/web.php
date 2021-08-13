@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\AllCategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -60,36 +61,43 @@ Route::get('/student/dashboard/account', [DashboardAccountController::class, 'in
 Route::get('/Admin/dashboard', [AdminDashboardController::class, 'index'])
     ->name('admin-dashboard');
 
-    // Student
-Route::get('/Admin/dashboard/student', [StudentController::class, 'index'])
-    ->name('admin-dashboard-student');
-Route::get('/Admin/dashboard/student/create', [StudentController::class, 'create'])
-    ->name('admin-dashboard-student-create');
-Route::get('/Admin/dashboard/student/edit', [StudentController::class, 'edit'])
-    ->name('admin-dashboard-student-edit');
-
     // Course
 Route::get('/Admin/dashboard/course', [CourseController::class, 'index'])
     ->name('admin-dashboard-course');
 Route::get('/Admin/dashboard/course/create', [CourseController::class, 'create'])
     ->name('admin-dashboard-course-create');
-Route::get('/Admin/dashboard/course/edit', [CourseController::class, 'edit'])
+Route::post('/Admin/dashboard/course/create', [CourseController::class, 'store'])
+    ->name('admin-dashboard-course-store');
+Route::get('/Admin/dashboard/course/edit/{id}', [CourseController::class, 'edit'])
     ->name('admin-dashboard-course-edit');
-Route::get('/Admin/dashboard/course/detail', [CourseController::class, 'show'])
+Route::put('/Admin/dashboard/course/update/{id}', [CourseController::class, 'update'])
+    ->name('admin-dashboard-course-update');
+Route::delete('/Admin/dashboard/course/delete/{id}', [CourseController::class, 'destroy'])
+    ->name('admin-dashboard-course-delete');
+Route::get('/Admin/dashboard/course/detail/{id}', [CourseController::class, 'show'])
     ->name('admin-dashboard-course-detail');
 
 // Chapter
-Route::get('/Admin/dashboard/chapter', [ChapterController::class, 'index'])
+Route::get('/Admin/dashboard/chapter/{id}', [ChapterController::class, 'index'])
     ->name('admin-dashboard-chapter');
-Route::get('/Admin/dashboard/chapter/create', [ChapterController::class, 'create'])
+Route::get('/Admin/dashboard/chapter/create/{id}', [ChapterController::class, 'create'])
     ->name('admin-dashboard-chapter-create');
-Route::get('/Admin/dashboard/chapter/edit', [ChapterController::class, 'edit'])
+Route::post('/Admin/dashboard/chapter/store/{id}', [ChapterController::class, 'store'])
+    ->name('admin-dashboard-chapter-store');
+Route::get('/Admin/dashboard/chapter/edit/{id}', [ChapterController::class, 'edit'])
     ->name('admin-dashboard-chapter-edit');
-Route::get('/Admin/dashboard/chapter/detail', [ChapterController::class, 'show'])
-    ->name('admin-dashboard-chapter-detail');
+Route::put('/Admin/dashboard/chapter/update/{id}', [ChapterController::class, 'update'])
+    ->name('admin-dashboard-chapter-update');
+Route::delete('/Admin/dashboard/chapter/delete/{id}', [ChapterController::class, 'destroy'])
+    ->name('admin-dashboard-chapter-delete');
 
+// Video
+Route::get('/Admin/dashboard/video/create', [AdminVideoController::class, 'create'])
+    ->name('admin-dashboard-video-create');
+Route::get('/Admin/dashboard/video/edit', [AdminVideoController::class, 'edit'])
+    ->name('admin-dashboard-video-edit');
 
-    // Category
+// Category
 Route::get('/Admin/dashboard/category', [AdminCategoryController::class, 'index'])
     ->name('admin-dashboard-category');
 Route::get('/Admin/dashboard/category/create', [AdminCategoryController::class, 'create'])
@@ -103,11 +111,11 @@ Route::put('/Admin/dashboard/category/update/{id}', [AdminCategoryController::cl
 Route::delete('/Admin/dashboard/category/delete/{id}', [AdminCategoryController::class, 'destroy'])
     ->name('admin-dashboard-category-delete');
 
-    // Account
+// Account
 Route::get('/Admin/dashboard/account', [SettingController::class, 'index'])
     ->name('admin-dashboard-account');
 
 
 
 
-// <!-- al muminun /qori ali al-hudzaifi mujawwad/:6: -->
+// <!-- al imran / muhammad shiddiq al minsyawi / :16: -->
