@@ -9,11 +9,11 @@
     </div>
     <div class="card card-profile" style="background: transparent;">
         <div class="card-avatar">
-            <img class="" src="{{ asset('images/faces/marc.jpg') }}" />
+            <img class="" src="/profile/{{ Auth::user()->photo }}" />
         </div>
         <div class="">
-          <h6 class="mt-3 text-gray">Peped Markoped</h6>
-          <h5 class="">pepedmarkoped@gmail.com</h5>
+          <h6 class="mt-3 text-gray">{{ Auth::user()->name }}</h6>
+          <h5 class="">{{ Auth::user()->email }}</h5>
         </div>
     </div>
     <div class="sidebar-wrapper" style="margin-top: -40px;">
@@ -32,7 +32,7 @@
                 {{ (request()->is('Admin/dashboard/chapter*')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/chapter/create')) ? 'active' : '' }}
                 {{ (request()->is('Admin/dashboard/chapter/edit*')) ? 'active' : '' }} 
-                {{ (request()->is('Admin/dashboard/video/create')) ? 'active' : '' }}  
+                {{ (request()->is('Admin/dashboard/video/create*')) ? 'active' : '' }}  
                 {{ (request()->is('Admin/dashboard/video/edit*')) ? 'active' : '' }}  
             ">
                 <a class="nav-link" href="{{ route('admin-dashboard-course') }}">
@@ -50,8 +50,8 @@
                 <p>Category</p>
                 </a>
             </li>
-            <li class="nav-item {{ (request()->is('Admin/dashboard/account')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin-dashboard-account') }}">
+            <li class="nav-item {{ (request()->is('Admin/dashboard/account*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin-dashboard-account', Auth::user()->id) }}">
                 <i class="material-icons">person</i>
                 <p>Account Settings</p>
                 </a>

@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $student = User::count();
+        $student = User::where('roles', 'USER')->get();
         $category = Category::count();
         $course = Course::count();
         $video = Video::count();

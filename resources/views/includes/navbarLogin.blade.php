@@ -40,8 +40,8 @@
                         aria-expanded="true" 
                         aria-controls="headlessui-menu-items-117"
                     >
-                        <img src="{{ asset('images/user.png') }}" class="w-14 h-14 m-1">
-                        <p class="text-gray-600 font-semibold">Hi, Sayaka</p>
+                        <img src="/profile/{{ Auth::user()->photo }}" class="w-14 h-14 m-1 rounded-full">
+                        <p class="text-gray-600 font-semibold">Hi, {{ Auth::user()->name }}</p>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
@@ -51,7 +51,13 @@
                             <ul class="text-left text-gray-600  bg-white border">
                                 <a href="{{ route('dashboard') }}"><li class="pl-3 pr-10 py-2 hover:bg-blue-500 hover:text-white transition duration-300">Dashboard</li></a>
                                 <a href="{{ route('dashboard-account') }}"><li class="pl-3 pr-10 py-2 hover:bg-blue-500 hover:text-white transition duration-300">Account</li></a>
-                                <a href="{{ route('home') }}"><li class="pl-3 pr-10 py-2 hover:bg-blue-500 hover:text-white transition duration-300">Logout</li></a>
+                                <form action="{{ route('logout') }}" method="POST" class="w-full">
+                                    @csrf
+                                    @method('POST')
+                                    <button type="submit" class="pr-14 py-2 w-full hover:bg-blue-500 hover:text-white transition duration-300">
+                                        logout
+                                    </button>
+                                </form>
                             </ul>
                         </div>
                     </div>

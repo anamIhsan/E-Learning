@@ -184,17 +184,17 @@ md = {
   },
 
   initDocumentationCharts: function() {
-    if ($('#dailySalesChart').length != 0 && $('#websiteViewsChart').length != 0) {
+    if ($('#categoryChart').length != 0 && $('#websiteViewsChart').length != 0) {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
-      dataDailySalesChart = {
+      datacategoryChart = {
         labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
           [12, 17, 7, 17, 23, 18, 38]
         ]
       };
 
-      optionsDailySalesChart = {
+      optionscategoryChart = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
@@ -208,9 +208,9 @@ md = {
         },
       }
 
-      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+      var categoryChart = new Chartist.Line('#categoryChart', datacategoryChart, optionscategoryChart);
 
-      var animationHeaderChart = new Chartist.Line('#websiteViewsChart', dataDailySalesChart, optionsDailySalesChart);
+      var animationHeaderChart = new Chartist.Line('#websiteViewsChart', datacategoryChart, optionscategoryChart);
     }
   },
 
@@ -309,17 +309,17 @@ md = {
 
   initDashboardPageCharts: function() {
 
-    if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
+    if ($('#categoryChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
-      dataDailySalesChart = {
-        labels: ['HTML', 'PHP', 'JS', 'PYTHON', 'C++', 'SQL', 'JAVA'],
+      datacategoryChart = {
+        labels: ['HTML', 'PHP', 'JS', 'PYTHON', 'C++', 'FLUTTER', 'JAVA', 'tes'],
         series: [
-          [12, 17, 7, 17, 23, 18, 38]
+          [12, 17, 7, 17, 23, 18, 38, 10]
         ]
       };
 
-      optionsDailySalesChart = {
+      optionscategoryChart = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
@@ -333,9 +333,9 @@ md = {
         },
       }
 
-      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+      var categoryChart = new Chartist.Line('#categoryChart', datacategoryChart, optionscategoryChart);
 
-      md.startAnimationForLineChart(dailySalesChart);
+      md.startAnimationForLineChart(categoryChart);
 
 
 

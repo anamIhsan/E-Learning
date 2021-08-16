@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\VideoRequest;
+use App\Models\Chapter;
+use App\Models\Course;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -16,11 +18,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Video::all();
-
-        return view('pages.admin.course.detail', [
-            'videos' => $videos
-        ]);
+        //
     }
 
     /**
@@ -28,9 +26,13 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($chapters)
     {
-        return view('pages.admin.course.video.create');
+        $chapters = Chapter::findOrFail($chapters);
+
+        return view('pages.admin.course.video.create', [
+            'chapters' => $chapters
+        ]);
     }
 
     /**
@@ -39,9 +41,13 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VideoRequest $request)
+    public function store(VideoRequest $request, $id)
     {
-        //
+        $chapters = Chapter::find($id);
+
+        Video::create($request->all());
+
+        return redirect()->route('admin-dashboard-course-detail', $chapters->course->id)->with('notification-success-video', 'Chapter berhasil di buat');
     }
 
     /**
@@ -61,9 +67,14 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id, $course)
     {
-        return view('pages.admin.course.video.edit');
+        $videos = Video::findOrFail($id);
+
+        return view('pages.admin.course.video.edit', [
+            'videos' => $videos,
+            'course' => $course
+        ]);
     }
 
     /**
@@ -75,7 +86,12 @@ class VideoController extends Controller
      */
     public function update(VideoRequest $request, $id)
     {
-        //
+        $chapter = Chapter::find($id);
+        $data = Video::findOrFail($id);
+
+        $data->update($request->all());
+
+        return redirect()->route('admin-dashboard-course-detail', $data->chapter->course->id )->with('notification-success', 'Chapter berhasil di edit');
     }
 
     /**
@@ -86,6 +102,10 @@ class VideoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Video::findOrFail($id);
+
+        $data->delete();
+
+        return back()->with('notification-delete', 'Video berhasil di hapus');
     }
 }

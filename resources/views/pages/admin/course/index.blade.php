@@ -250,50 +250,52 @@
                                 $dataAos = 0
                             @endphp
                             @foreach ($courses as $data)
-                                <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $dataAos+= 100 }}">
-                                    <td>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                            <label for="checkbox1"></label>
-                                        </span>
-                                    </td>
-                                    <td style="font-size: 16px;">{{ $data->category->name }}</td> 
-                                    <td style="font-size: 16px;">{{ $data->title }}</td>
-                                    <td>
-                                        <img src="/profile/{{ $data->thumbnail }}" class="bg-cover" width="90" height="50">
-                                    </td>
-                                    <td width="250">{{ $data->description }}</td>
-                                    <td class="">
-                                        <div class="d-flex ">
-                                            <a href="{{ route('admin-dashboard-course-edit', $data->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                            <a href="{{ route('admin-dashboard-course-detail', $data->id) }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">	&#xe879;</i></a>
-                                            <a href="#deleteCourse-{{ $data->id }}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {{-- ALERT DELETE COURSE --}}
-                                <div id="deleteCourse-{{ $data->id }}" class="modal fade">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form action="{{ route('admin-dashboard-course-delete', $data->id) }}" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div class="modal-header">						
-                                                    <h4 class="modal-title">Delete Course</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                </div>
-                                                <div class="modal-body">					
-                                                    <p>Are you sure you want to delete these Records?</p>
-                                                    <p class="text-warning"><small>This action cannot be undone.</small></p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                                    <input type="submit" class="btn btn-danger" value="Delete">
-                                                </div>
-                                            </form>
+                                @if ($data->user_id === $users->id)
+                                    <tr data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $dataAos+= 100 }}">
+                                        <td>
+                                            <span class="custom-checkbox">
+                                                <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                                <label for="checkbox1"></label>
+                                            </span>
+                                        </td>
+                                        <td style="font-size: 16px;">{{ $data->category->name }}</td> 
+                                        <td style="font-size: 16px;">{{ $data->title }}</td>
+                                        <td>
+                                            <img src="/profile/{{ $data->thumbnail }}" class="bg-cover" width="90" height="50">
+                                        </td>
+                                        <td width="250">{{ $data->description }}</td>
+                                        <td class="">
+                                            <div class="d-flex ">
+                                                <a href="{{ route('admin-dashboard-course-edit', $data->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                                <a href="{{ route('admin-dashboard-course-detail', $data->id) }}" class="text-primary"><i class="material-icons" data-toggle="tooltip" title="Detail">	&#xe879;</i></a>
+                                                <a href="#deleteCourse-{{ $data->id }}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{-- ALERT DELETE COURSE --}}
+                                    <div id="deleteCourse-{{ $data->id }}" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <form action="{{ route('admin-dashboard-course-delete', $data->id) }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="modal-header">						
+                                                        <h4 class="modal-title">Delete Course</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">					
+                                                        <p>Are you sure you want to delete these Records?</p>
+                                                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

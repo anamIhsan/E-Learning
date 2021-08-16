@@ -20,8 +20,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'photo'
+        'photo',
+        'roles'
     ];
+
+    public function category()
+    {
+        return $this->hasMany(Category::class, 'user_id', 'id');
+    }
+
+    public function course()
+    {
+        return $this->hasMany(Course::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

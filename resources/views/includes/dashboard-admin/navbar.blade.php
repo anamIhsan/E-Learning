@@ -10,7 +10,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="d-flex align-items-center">
-            <p class="mt-3">Hi, Name</p>
+            <p class="mt-3">Hi, {{ Auth::user()->name }}</p>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,9 +20,14 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                        <a class="dropdown-item" href="{{ route('dashboard-account') }}">Profile</a>
+                        <a class="dropdown-item" href="{{ route('user-home') }}">Home</a>
+                        <a class="dropdown-item" href="{{ route('admin-dashboard-account', Auth::user()->id) }}">Profile</a>
                             <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('home') }}/">Log out</a>
+                        <form action="{{ route('logout') }}" method="POST" class="">
+                            @csrf
+                            @method('POST')
+                            <button class="dropdown-item" style="width: 94%;" type="submit">Log out</button>
+                        </form>
                     </div>
                 </li>
             </ul>

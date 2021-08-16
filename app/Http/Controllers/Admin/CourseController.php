@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Chapter;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -19,8 +20,12 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
+        $users = Auth::user();
 
-        return view('pages.admin.course.index', ['courses' => $courses]);
+        return view('pages.admin.course.index', [
+            'courses' => $courses,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -31,8 +36,12 @@ class CourseController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $users = Auth::user();
 
-        return view('pages.admin.course.create', ['categories' => $categories]);
+        return view('pages.admin.course.create', [
+            'categories' => $categories,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -76,10 +85,12 @@ class CourseController extends Controller
     {
         $data = Course::findOrFail($id);
         $categories = Category::all();
+        $users = Auth::user();
 
         return view('pages.admin.course.edit', [
             'data' => $data,
             'categories' => $categories,
+            'users' => $users,
             
         ]);
     }
@@ -121,6 +132,7 @@ class CourseController extends Controller
     {
         $data = Course::find($id);
 
+        $data->chapter()->delete();
         $this->removeImage($data->thumbnail);
         $data->delete();
         return back()->with('notification-delete', 'Course berhasil di hapus');

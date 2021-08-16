@@ -42,7 +42,9 @@
                           <label class="bmd-label-floating">CATEGORY</label>
                           <select name="categories_id" id="" class="pl-2 form-control">
                               @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @if ($category->user_id === $users->id)
+                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endif
                               @endforeach
                           </select>
                         </div>
@@ -50,6 +52,7 @@
                       <div class="col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                           <div class="form-group">
                             <label class="bmd-label-floating">TITLE</label>
+                            <input type="hidden" value="{{ $users->id }}" name="user_id">
                             <input 
                               type="text" 
                               class="form-control"

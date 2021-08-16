@@ -24,8 +24,8 @@ class VideoRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|min:5|max:25',
-            'video_file' => 'required'
+            'title' => 'required|string|min:5|max:250',
+            'video' => 'required'
         ];
     }
 
@@ -36,7 +36,7 @@ class VideoRequest extends FormRequest
             'title.string' => 'Title wajib teks',
             'title.min' => 'Title minimal 5 karakter',
             'title.max' => 'Title maksimal 25 karakter',
-            'video_file' => 'Video wajib di isi'
+            'video' => 'Video wajib di isi'
         ];
     }
 }

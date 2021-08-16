@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:3|max:150',
+            'name' => 'required|string|min:5|max:150',
             'photo_file' => 'required'
         ];
     }
@@ -34,7 +34,7 @@ class CategoryRequest extends FormRequest
         return [
             'name.required' => 'Nama wajib di isi',
             'name.string' => 'Nama harus di isi dengan teks',
-            'name.min' => 'Nama minimal 3 karakter',
+            'name.min' => 'Nama minimal 5 karakter',
             'name.max' => 'Nama maximal 150 karakter',
             'photo_file.required' => 'Photo wajib di isi'
         ];

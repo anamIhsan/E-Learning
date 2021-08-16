@@ -26,7 +26,7 @@
             <a href="{{ route('admin-dashboard-course') }}"><button class="btn btn-dark pull-right ml-3 mb-3">Back</button></a>
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Create Course</h4>
+                <h4 class="card-title">Edit Course</h4>
                 <p class="card-category">
                   Pengaturan akun yang mungkin
                   dibutuhkan selama proses belajar
@@ -42,7 +42,9 @@
                           <label class="bmd-label-floating">CATEGORY</label>
                           <select name="categories_id" class="pl-2 form-control">
                             @foreach ($categories as $category)
-                              <option value="{{ $category->id }}" {{ $category->id == $data->categories_id ? "selected" : "" }}>{{ $category->name }}</option>
+                              @if ($category->user_id === $users->id)
+                                <option value="{{ $category->id }}" {{ $category->id == $data->categories_id ? "selected" : "" }}>{{ $category->name }}</option>
+                              @endif
                             @endforeach
                           </select>
                         </div>

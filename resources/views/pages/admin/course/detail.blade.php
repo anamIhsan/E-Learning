@@ -11,10 +11,10 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-            <div class="row d-flex align-items-center">
+            <div class="row d-flex">
                 <div class="col-md-6">
                     <a href="{{ route('admin-dashboard-course') }}"><button class="btn btn-dark ml-3 mb-3">Back</button></a>
-                    <div class="card h-100 mb-4">
+                    <div class="card mb-4">
                         <div class="card-header card-header-tabs card-header-primary">
                             <div class="row d-flex justify-content-between align-items-center px-3">
                                 <div class="">
@@ -31,11 +31,11 @@
                             $dataAos = 0
                         @endphp
                         <div class="card-body">
-                            {{-- ALERT DATA BERHASIL DI HAPUS / EDIT --}}
+                            {{-- ALERT CHAPTER & VIDEO BERHASIL DI HAPUS / EDIT --}}
                             @if (session('notification-success'))
                                 <div class="alert alert-success">{{ session('notification-success') }}</div>
                             @endif
-                            {{-- ALERT DATA BERHASIL DI DELETE --}}
+                            {{-- ALERT CHAPTER & VIDEO BERHASIL DI DELETE --}}
                             @if (session('notification-delete'))
                                 <div class="alert alert-danger">{{ session('notification-delete') }}</div>
                             @endif
@@ -48,46 +48,57 @@
                                             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $dataAos+= 100 }}"    
                                         >
                                                 # {{ $chapters->title }}
-                                            </h6>
+                                        </h6>
                                         <div class="d-flex">
                                             <a href="{{ route('admin-dashboard-chapter-edit', $chapters->id) }}" class="edit text-warning mr-2"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                             <a href="#deleteChapter-{{ $chapters->id }}" class="delete text-danger" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                         </div>
                                     </div>
                                     {{-- Video --}}
-                                    <a href="{{ route('admin-dashboard-video-create') }}" class="btn btn-success">Add New Video</a>
-                                    <ul class="list-group">
-                                        <li class="list-group-item border-0 d-flex justify-content-between align-items-center ps-0 mb-2">
-                                            <a href="{{ asset('videos/vaksin.mp4') }}" target="target">
-                                                <div class="d-flex align-items-center">
-                                                    <i class="material-icons text-secondary">play_circle_filled</i>
-                                                    <h6 class="text-dark mt-2 ml-2">Netflix</h6>
-                                                </div>
-                                            </a>
-                                            <div class="d-flex">
-                                                <a href="{{ route('admin-dashboard-video-edit') }}" class="edit text-warning mr-2"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                                <a href="#deleteEmployeeModal" class="delete text-danger" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    {{-- @foreach ($videos as $video)
-                                        <ul class="list-group">
-                                            <li class="list-group-item border-0 d-flex justify-content-between align-items-center ps-0 mb-2">
-                                                <a href="{{ asset('videos/vaksin.mp4') }}" target="target">
-                                                    <div class="d-flex align-items-center">
-                                                        <i class="material-icons text-secondary">play_circle_filled</i>
-                                                        <h6 class="text-dark mt-2 ml-2">{{ $video->title }}</h6>
+                                    <a href="{{ route('admin-dashboard-video-create', $chapters->id) }}" class="btn btn-success">Add New Video</a>
+                                    @foreach ($videos as $video)
+                                        @if ($video->chapters_id === $chapters->id)
+                                            <ul class="list-group">
+                                                <li class="list-group-item border-0 d-flex justify-content-between align-items-center ps-0 mb-2">
+                                                    <a href="{{ $video->video }}" target="target" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $dataAos += 100 }}" data-toggle="tooltip" title="Lihat video">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="material-icons text-secondary">play_circle_filled</i>
+                                                            <h6 class="text-dark mt-2 ml-2">{{ $video->title }}</h6>
+                                                        </div>
+                                                    </a>
+                                                    <div class="d-flex">
+                                                        <a href="{{ route('admin-dashboard-video-edit', $video->id.'/'. $chapters->courses_id) }}" class="edit text-warning mr-2"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                                        <a href="#deleteVideo-{{ $video->id }}" class="delete text-danger" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                                     </div>
-                                                </a>
-                                                <div class="d-flex">
-                                                    <a href="{{ route('admin-dashboard-video-edit') }}" class="edit text-warning mr-2"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                                    <a href="#deleteEmployeeModal" class="delete text-danger" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                                </li>
+                                            </ul>
+                                        @endif
+                                        {{-- ALERT DELETE VIDEO --}}
+                                        <div id="deleteVideo-{{ $video->id }}" class="modal fade">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form action="{{ route('admin-dashboard-video-delete', $video->id) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <div class="modal-header">						
+                                                            <h4 class="modal-title">Delete Video</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">					
+                                                            <p>Are you sure you want to delete these Records?</p>
+                                                            <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                                            <input type="submit" class="btn btn-danger" value="Delete">
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    @endforeach --}}
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div> 
-                                {{-- ALERT --}}
+                                {{-- ALERT DELETE CHAPTER --}}
                                 <div id="deleteChapter-{{ $chapters->id }}" class="modal fade">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -126,13 +137,14 @@
                                 <h5 style="margin-top: -15px;">{{ $course->title }}</h5>
                             </div>
                         </div>
-                        <video 
-                            controls 
+                        <iframe 
+                            class="w-100 rounded-lg shadow-xl outline-none" height="350" 
+                            src="/profile/{{ $course->thumbnail }}"  title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             name="target"
-                            class="w-100 h-100 rounded-lg shadow-xl outline-none"   
+                            allowfullscreen
                         >
-                            <source src="{{ asset('videos/sombong.mp4') }}" type="video/mp4">
-                        </video>
+                        </iframe>
                         <p class="mt-2">DESCRIPTION</p>
                         <h5 style="margin-top: -3px;">{{ $course->description }}</h5>
                     </div>

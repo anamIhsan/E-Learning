@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ChapterRequest;
 use App\Models\Chapter;
 use App\Models\Course;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -19,9 +20,11 @@ class ChapterController extends Controller
     {
         $course = Course::find($url);
         $chapter = Chapter::where('courses_id', $url)->get();
+        $videos = Video::get();
         
         return view('pages.admin.course.detail', [
             'chapter' => $chapter,
+            'videos' => $videos,
             'course' => $course,
             'url' => $url
         ]);
@@ -96,7 +99,7 @@ class ChapterController extends Controller
 
         $data->update($request->all());
 
-        return redirect()->route('admin-dashboard-course-detail', $data->course->id )->with('notification-success', 'Chapter berhasil di buat');
+        return redirect()->route('admin-dashboard-course-detail', $data->course->id )->with('notification-success', 'Chapter berhasil di edit');
     }
 
     /**
@@ -109,6 +112,7 @@ class ChapterController extends Controller
     {
         $data = Chapter::findOrFail($id);
 
+        $data->video()->delete();
         $data->delete();
 
         return back()->with('notification-delete', 'Chapter berhasil di hapus');

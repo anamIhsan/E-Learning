@@ -22,46 +22,46 @@
               </p>
             </div>
             <div class="card-body">
-              <form>
-                <!-- <div class="row">
-                  <div class="col-md-5">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Company (disabled)</label>
-                      <input type="text" class="form-control" disabled>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Username</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Email address</label>
-                      <input type="email" class="form-control">
-                    </div>
-                  </div>
-                </div> -->
+              {{-- ALERT PROFILE BERHASIL DI EDIT --}}
+              @if (session('notification-success'))
+                <div class="alert alert-success">{{ session('notification-success') }}</div>
+              @endif
+              <form action="{{ route('admin-dashboard-account-update', $users->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                   <div class="col-md-12">
                     <div class="">
                       <label class="bmd-label-floating">PROFILE</label>
-                      <input type="file" class="form-control">
+                      <input 
+                        type="file" 
+                        class="form-control"
+                        name="profile_file"  
+                      >
                     </div>
                   </div>
                 </div>
-                <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="row mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">NAME</label>
-                      <input type="text" class="form-control">
+                      <input 
+                        type="text" 
+                        class="form-control"
+                        name="name"
+                        value="{{ $users->name }}"  
+                      >
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">EMAIL ADDRESS</label>
-                      <input type="email" class="form-control">
+                      <input 
+                        type="email" 
+                        class="form-control"
+                        name="email"
+                        value="{{ $users->email }}"  
+                      >
                     </div>
                   </div>
                 </div>
@@ -70,70 +70,36 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">NEW PASSWORD</label>
-                      <input type="password" class="form-control">
+                      <input 
+                        type="password" 
+                        class="form-control @error('password') is-invalid @enderror"
+                        name="password"  
+                      >
+                      @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">RE-TYPE NEW PASSWORD</label>
-                      <input type="password" class="form-control">
+                      <input 
+                        type="password" 
+                        class="form-control @error('retype_password') is-invalid @enderror"
+                        name="retype_password"  
+                      >
+                      @error('retype_password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
                 </div>
-                <!-- <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">City</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Country</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Postal Code</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                </div> -->
-                <!-- <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label>About Me</label>
-                      <div class="form-group">
-                        <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                        <textarea class="form-control" rows="5"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
                 <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
                 <div class="clearfix"></div>
               </form>
             </div>
           </div>
         </div>
-        {{-- <div class="col-md-4">
-          <div class="card card-profile">
-            <div class="card-avatar">
-              <a href="javascript:;">
-                <img class="img" src="{{ asset('images/faces/marc.jpg') }}" />
-              </a>
-            </div>
-            <div class="card-body">
-              <h6 class="card-category text-gray">Peped Markoped</h6>
-              <h4 class="card-title">pepedmarkoped@gmail.com</h4>
-              <p class="card-description">
-                Milikilah tujuan untuk sukses, bukan kesempurnaan. Jangan pernah melepaskan hakmu untuk melakukan kesalahan, karena dengan begitu kamu akan kehilangan kemampuan untuk mempelajari hal-hal baru dan melanjutkan hidup. Ingatlah bahwa ketakutan selalu bersembunyi di balik perfeksionisme.
-              </p>
-              <!-- <a href="javascript:;" class="btn btn-primary btn-round">Follow</a> -->
-            </div>
-          </div>
-        </div> --}}
       </div>
     </div>
   </div>

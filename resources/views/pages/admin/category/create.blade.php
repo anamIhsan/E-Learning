@@ -40,6 +40,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">NAME</label>
+                          <input type="hidden" value="{{ $users->id }}" name="user_id">
                           <input 
                             type="text" 
                             class="form-control"
