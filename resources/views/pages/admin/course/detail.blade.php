@@ -139,7 +139,7 @@
                         </div>
                         <iframe 
                             class="w-100 rounded-lg shadow-xl outline-none" height="350" 
-                            src="/profile/{{ $course->thumbnail }}"  title="YouTube video player" frameborder="0" 
+                            src="https://www.youtube.com/embed/2hoppIV55mc" title="YouTube video player"  title="YouTube video player" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             name="target"
                             allowfullscreen

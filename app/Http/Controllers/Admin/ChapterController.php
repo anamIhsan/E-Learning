@@ -20,7 +20,7 @@ class ChapterController extends Controller
     {
         $course = Course::find($url);
         $chapter = Chapter::where('courses_id', $url)->get();
-        $videos = Video::get();
+        $videos = Video::first()->get();
         
         return view('pages.admin.course.detail', [
             'chapter' => $chapter,

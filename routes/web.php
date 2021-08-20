@@ -46,13 +46,13 @@ Route::middleware(['auth'])->group(function () {
     // User
     Route::get('/student/home', [StudentHomeController::class, 'index'])
         ->name('user-home');
-    Route::get('/student/categories', [StudentCategoryController::class, 'index'])
+    Route::get('/student/categories/{id}', [StudentCategoryController::class, 'index'])
         ->name('user-categories');
     Route::get('/student/categories/all', [StudentAllCategoryController::class, 'index'])
         ->name('all-category');
-    Route::get('/student/class', [ClassController::class, 'index'])
+    Route::get('/student/class/{id}', [ClassController::class, 'index'])
         ->name('class');
-    Route::get('/student/class/video', [VideoController::class, 'index'])
+    Route::get('/student/class/video/{id}', [VideoController::class, 'index'])
         ->name('video');
 
     // Dashboard User
@@ -133,4 +133,4 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-// <!-- juz 11 / muhammad shiddiq al minsyawi / :57: -->
+// <!-- al imran / mahmoud alhosary / 1:25: -->

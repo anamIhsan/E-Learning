@@ -313,9 +313,9 @@ md = {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
       datacategoryChart = {
-        labels: ['HTML', 'PHP', 'JS', 'PYTHON', 'C++', 'FLUTTER', 'JAVA', 'tes'],
+        labels: ['Programing', 'Design', 'Cooking', 'Photography', 'Sport', 'Sejarah', 'JAVA', 'tes'],
         series: [
-          [12, 17, 7, 17, 23, 18, 38, 10]
+          [17, 17, 17, 17, 17, 17, 17, 17]
         ]
       };
 
